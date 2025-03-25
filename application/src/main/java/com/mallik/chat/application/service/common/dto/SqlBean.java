@@ -1,13 +1,18 @@
 package com.mallik.chat.application.service.common.dto;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode()
+@MappedSuperclass
 public class SqlBean {
-    private String id;
-    private long createdTime;
-    private long modifiesTime;
-    private boolean deleted;
+    @Column(name = "createdTime")
+    private Long createdTime;
+    @Column(name = "modifiedTime")
+    private Long modifiedTime;
+    @Column(name = "deleted")
+    private Boolean deleted;
 }
